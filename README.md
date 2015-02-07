@@ -66,11 +66,18 @@ data example.
 
 column name
 
-| key    | 設定        |
+| key    | description |
 |--------|-------------|
 | name   | colum name  |
 | type   | type        |
-| format | date format |
+
+Type is one of the following value.
+
+* booealn
+* long
+* double
+* string
+* timestamp
 
 ## Usage
 
@@ -78,7 +85,7 @@ Example data. The sheet name is "The Beatles".
 
 | No | first_name  | first_name | nickname | birthday   |
 |----|-------------|------------|----------|------------|
-| 1  | Jhon        | Lennon     | Jahon    | 1940/10/09 |
+| 1  | John        | Lennon     | John    | 1940/10/09 |
 | 2  | Paul        | McCartney  | Paul     | 1942/06/18 |
 | 3  | George      | Harrison   | George   | 1943/02/25 |
 | 4  | Ringo       | Starr      | Ringo    | 1940/07/07 |
@@ -87,12 +94,12 @@ configuration file
 
 ```
 in:
-  type: roo-excel
+  type: roo_excel
   sheet: "The Beatles"
   data_pos: 2
   paths: ["/path/to/beatles"]
   columns:
-    - { name: no, type: integer }
+    - { name: no, type: long }
     - { name: first_name, type: string }
     - { name: last_name,  type: string }
     - { name: nick_name,  type: string }

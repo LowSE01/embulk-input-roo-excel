@@ -74,7 +74,14 @@ spreadsheet (1.0.1)
 |----------|------------------------------|
 | name     | カラムの名前                 |
 | type     | 型                           |
-| format   | 日付のフォーマット           |
+
+型は、Embulkの型にあわせてください
+
+* booealn (未テスト)
+* long: 整数
+* double: 浮動小数点
+* string: 文字列
+* timestamp: 日時
 
 ## 設定例
 
@@ -82,7 +89,7 @@ spreadsheet (1.0.1)
 
 | No | first_name  | first_name | nickname | birthday   |
 |----|-------------|------------|----------|------------|
-| 1  | Jhon        | Lennon     | Jahon    | 1940/10/09 |
+| 1  | John        | Lennon     | John     | 1940/10/09 |
 | 2  | Paul        | McCartney  | Paul     | 1942/06/18 |
 | 3  | George      | Harrison   | George   | 1943/02/25 |
 | 4  | Ringo       | Starr      | Ringo    | 1940/07/07 |
@@ -92,22 +99,19 @@ spreadsheet (1.0.1)
 
 ```
 in:
-  type: roo-excel
+  type: roo_excel
   sheet: "The Beatles"
   data_pos: 2
   paths: ["/path/to/beatles"]
   columns:
-    - { name: no, type: integer }
+    - { name: no, type: long }
     - { name: first_name, type: string }
     - { name: last_name,  type: string }
     - { name: nick_name,  type: string }
-    - { name: birthday,   type:timestamp, format:"%Y/%m/%d" }
+    - { name: birthday,   type:timestamp }
 out:
   type: stdout
 ```
-
-※ 日付の変換は現在実装中です。
-
 
 ## 実行例
 
@@ -116,6 +120,10 @@ java -jar embulk.jar preview config.yml
 java -jar embulk.jar run config.yml
 ```
 
+## 既存の問題点
+
+* doneはまだ動きません。
+* '1:00'など時刻を記載するとExcel上はTimeになりますが良い変換方法が思いつかないので型をdoubleにして、3600.0と秒に変換してください。
 
 ## Contributing
 
