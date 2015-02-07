@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "embulk-plugin-input-roo-excel"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Hiroyuki Sato"]
   spec.email         = ["hiroysato@gmail.com"]
   spec.summary       = %q{Embulk input plugin to read xlsx files}
@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "roo"
+  spec.add_dependency "roo"
 end
