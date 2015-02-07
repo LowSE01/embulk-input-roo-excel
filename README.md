@@ -1,26 +1,112 @@
 # embulk-plugin-input-roo-excel
 
-This is a input plugin for embulk to read xlsx documents.
+[Japanese Page](README.ja.md)
+
+This is a input plugin for [Embulk](https://github.com/embulk/embulk) to read xlsx documents.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'embulk-plugin-input-roo-excel'
+```
+java -jar embulk.jar gem intall embulk-plugin-input-roo-excel
 ```
 
-And then execute:
+You also need roo gem for read xlsx documents. If those package not install automatically, install too.
 
-    $ bundle
+```
+java -jar ~/embulk.jar gem install roo
+Fetching: ruby-ole-1.2.11.8.gem (100%)
+Successfully installed ruby-ole-1.2.11.8
+Fetching: spreadsheet-1.0.1.gem (100%)
+Successfully installed spreadsheet-1.0.1
+Fetching: nokogiri-1.6.6.2-java.gem (100%)
+Successfully installed nokogiri-1.6.6.2-java
+Fetching: rubyzip-1.1.7.gem (100%)
+Successfully installed rubyzip-1.1.7
+Fetching: roo-1.13.2.gem (100%)
+Successfully installed roo-1.13.2
+5 gems installed
+```
 
-Or install it yourself as:
+You can check package list.
 
-    $ gem install embulk-plugin-input-roo-excel
+```
+java -jar ~/embulk.jar gem list
+
+*** LOCAL GEMS ***
+
+ffi (1.9.3 java)
+jar-dependencies (0.1.2)
+jruby-openssl (0.9.5 java)
+json (1.8.0 java)
+krypt (0.0.2)
+krypt-core (0.0.2 universal-java)
+krypt-provider-jdk (0.0.2)
+nokogiri (1.6.6.2 java)
+rake (10.1.0)
+rdoc (4.0.1)
+roo (1.13.2)
+ruby-ole (1.2.11.8)
+rubyzip (1.1.7)
+spreadsheet (1.0.1)
+```
+
+## configuration
+
+data example.
+
+
+設定
+
+| key      | description   | default     |
+|----------|-----------------------------|
+| data_pos | data position | 1           |
+| sheet    | sheet name    | first sheet |
+| paths    | file path     | []          |
+| colums   | column names  |             |
+
+column name
+
+| key    | 設定        |
+|--------|-------------|
+| name   | colum name  |
+| type   | type        |
+| format | date format |
 
 ## Usage
 
-TODO: Write usage instructions here
+Example data. The sheet name is "The Beatles".
+
+| No | first_name  | first_name | nickname | birthday   |
+|----|-------------|------------|----------|------------|
+| 1  | Jhon        | Lennon     | Jahon    | 1940/10/09 |
+| 2  | Paul        | McCartney  | Paul     | 1942/06/18 |
+| 3  | George      | Harrison   | George   | 1943/02/25 |
+| 4  | Ringo       | Starr      | Ringo    | 1940/07/07 |
+
+configuration file
+
+```
+in:
+  type: roo-excel
+  sheet: "The Beatles"
+  data_pos: 2
+  paths: ["/path/to/beatles"]
+  columns:
+    - { name: no, type: integer }
+    - { name: first_name, type: string }
+    - { name: last_name,  type: string }
+    - { name: nick_name,  type: string }
+    - { name: birthday,   type:timestamp, format:"%Y/%m/%d" }
+out:
+  type: stdout
+```
+
+## execution
+
+```
+java -jar embulk.jar preview config.yml
+java -jar embulk.jar run config.yml
+```
 
 ## Contributing
 
