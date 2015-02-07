@@ -87,7 +87,7 @@ spreadsheet (1.0.1)
 
 シート名: "The Beatles"に次のようなデータが格納されている場合
 
-| No | first_name  | first_name | nickname | birthday   |
+| id | first_name  | first_name | nickname | birthday   |
 |----|-------------|------------|----------|------------|
 | 1  | John        | Lennon     | John     | 1940/10/09 |
 | 2  | Paul        | McCartney  | Paul     | 1942/06/18 |
@@ -104,11 +104,11 @@ in:
   data_pos: 2
   paths: ["/path/to/beatles"]
   columns:
-    - { name: no, type: long }
+    - { name: id, type: long }
     - { name: first_name, type: string }
     - { name: last_name,  type: string }
     - { name: nick_name,  type: string }
-    - { name: birthday,   type:timestamp }
+    - { name: birthday,   type: timestamp }
 out:
   type: stdout
 ```
