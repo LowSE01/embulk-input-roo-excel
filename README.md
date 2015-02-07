@@ -54,11 +54,10 @@ spreadsheet (1.0.1)
 
 data example.
 
-
-設定
+configuration
 
 | key      | description   | default     |
-|----------|-----------------------------|
+|----------|---------------|-------------|
 | data_pos | data position | 1           |
 | sheet    | sheet name    | first sheet |
 | paths    | file path     | []          |
