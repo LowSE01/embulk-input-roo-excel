@@ -2,9 +2,9 @@ require 'roo'
 require 'time'
 
 module Embulk
-  module Plugin
+  module Input
 
-    class InputRooExcel < InputPlugin
+    class RooExcelInputPlugin < InputPlugin
       # input plugin file name must be: embulk/input_<name>.rb
       Plugin.register_input('roo_excel', self)
 
