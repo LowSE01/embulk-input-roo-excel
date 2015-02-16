@@ -41,7 +41,7 @@ module Embulk
         commit_reports = yield(task, columns, count)
         puts "InputRooExcel input finished. Commit reports = #{commit_reports.to_json}"
 
-        next_config_diff = {}
+        next_config_diff = commit_reports.map{|hash| hash["done"]}.flatten.compact
         return next_config_diff
       end
 
@@ -76,7 +76,7 @@ module Embulk
 
         @page_builder.finish  # don't forget to call finish :-)
 
-        commit_report = {}
+        commit_report = { 'done' => @file }
         return commit_report
       end
 
