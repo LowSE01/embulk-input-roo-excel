@@ -3,13 +3,13 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = "embulk-plugin-input-roo-excel"
+  spec.name          = "embulk-input-roo-excel"
   spec.version       = "0.1.1"
   spec.authors       = ["Hiroyuki Sato"]
   spec.email         = ["hiroysato@gmail.com"]
   spec.summary       = %q{Embulk input plugin to read xlsx files}
   spec.description   = %q{Embulk input plugin to read xlsx files}
-  spec.homepage      = "https://github.com/hiroyuki-sato/embulk-plugin-input-roo-excel"
+  spec.homepage      = "https://github.com/hiroyuki-sato/embulk-input-roo-excel"
   spec.license       = "Apache 2.0"
 
   spec.files         = `git ls-files -z`.split("\x0")

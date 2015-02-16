@@ -1,4 +1,4 @@
-# embulk-plugin-input-roo-excel
+# embulk-input-roo-excel
 
 [Japanese Page](README.ja.md)
 
@@ -7,7 +7,7 @@ This is a input plugin for [Embulk](https://github.com/embulk/embulk) to read xl
 ## Installation
 
 ```
-java -jar embulk.jar gem intall embulk-plugin-input-roo-excel
+java -jar embulk.jar gem intall embulk-input-roo-excel
 ```
 
 You also need roo gem for read xlsx documents. If those package not install automatically, install too.
@@ -116,7 +116,7 @@ java -jar embulk.jar run config.yml
 
 ## Contributing
 
-1. Fork it ( https://github.com/hiroyuki-sato/embulk-plugin-input-roo-excel/fork )
+1. Fork it ( https://github.com/hiroyuki-sato/embulk-input-roo-excel/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

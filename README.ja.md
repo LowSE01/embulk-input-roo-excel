@@ -1,6 +1,6 @@
-# embulk-plugin-input-roo-excel
+# embulk-input-roo-excel
 
-[embulk-plugin-input-roo-excel](https://github.com/hiroyuki-sato/embulk-plugin-input-roo-excel)は、[Embulk](https://github.com/embulk/embulk)で、xlsxファイルを読込みするための入力プラグインです。
+[embulk-input-roo-excel](https://github.com/hiroyuki-sato/embulk-input-roo-excel)は、[Embulk](https://github.com/embulk/embulk)で、xlsxファイルを読込みするための入力プラグインです。
 
 ## インストール方法
 
@@ -8,7 +8,7 @@ Embulkのgemインストール方法にならって次のようにしてパッ�
 
 
 ```
-java -jar embulk.jar gem intall embulk-plugin-input-roo-excel
+java -jar embulk.jar gem intall embulk-input-roo-excel
 ```
 
 また本プラグインは、xlsxファイルの読込みにrooを利用しているので、自動的にrooが導入されない場合は次のようにしてrooもインストールしてください。
@@ -127,7 +127,7 @@ java -jar embulk.jar run config.yml
 
 ## Contributing
 
-1. Fork it ( https://github.com/hiroyuki-sato/embulk-plugin-input-roo-excel/fork )
+1. Fork it ( https://github.com/hiroyuki-sato/embulk-input-roo-excel/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
